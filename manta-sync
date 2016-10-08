@@ -332,7 +332,7 @@ function processfile(obj, cb) {
   dfile.info({md5: opts.md5}, function(err, dinfo) {
     if (err) {
       processed++;
-      if (err.code === 'NotFoundError' || err.code === 'ENOENT') {
+      if (err.name === 'NotFoundError' || err.code === 'NotFoundError' || err.code === 'ENOENT') {
         log(0, '%s... not found, adding to sync list (%d/%d)',
             dfile.path, processed, sourcefiles.length);
         filestoput.push(obj);
